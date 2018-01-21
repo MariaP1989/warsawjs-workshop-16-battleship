@@ -82,7 +82,7 @@
 }
 
 #app .wrapper .field .cell.has-ship {
-    background-color: limegreen;
+    background-color: #1d76fc;
 }
 
 #app .wrapper .field .cell.hit {
@@ -92,4 +92,3 @@
 #app .wrapper .field .cell.miss {
     background-color: blue;
 }
-
