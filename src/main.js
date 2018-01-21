@@ -1,20 +1,35 @@
-import GameField from './GameField'
-import ShipSet from './ShipSet'
+import GameField from './GameField';
+import ShipSet from './ShipSet';
+import gameState from './GameState';
+
+const app = document.getElementById('app');
+
+const wrapper = document.createElement('div');
+wrapper.className = "wrapper";
+
+const notification = document.createElement('div');
+notification.className = "notification";
+
+const render = () => {
+    wrapper.append(GameField('computer'));
+    wrapper.append(GameField('user'));
+}
+
+const clear = () => {
+    wrapper.innerHTML = '';
+}
+
+gameState.reRender = () => {
+    clear();
+    render();
+    notification.innerHTML = gameState.shootingTurn;
+}
 
 const main = () => {
-    const app = document.getElementById('app');
-    const wrapper = document.createElement('div');
-    wrapper.className = "wrapper";
-    console.log(GameField());
-
-    wrapper.append(GameField());
-    wrapper.append(GameField());
+    gameState.startGame();
+    notification.innerHTML = gameState.shootingTurn;
+    app.append(notification);
     app.append(wrapper);
-
-    const shipSet = new ShipSet();
-    console.log(shipSet, 'main')
-    shipSet.generateSeveralShips(20);
-    console.log(shipSet.shipsPlacement);
 }
 
 main();
