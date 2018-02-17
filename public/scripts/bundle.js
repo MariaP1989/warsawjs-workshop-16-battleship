@@ -339,19 +339,14 @@
 	            for (var i = 0; i < number; i++) {
 	                do {
 	                    ships[i] = this.generateRandomShip();
-	                } while (!this.spaceIsAvailable(ships[i]));{
-	                    this.assignePlacement(ships[i]);
-	                };
+	                } while (!this.spaceIsAvailable(ships[i]));
+	                this.assignePlacement(ships[i]);
 	            }
 	        }
 	    }, {
 	        key: 'spaceIsAvailable',
 	        value: function spaceIsAvailable(ship) {
-	            if (this.shipsPlacement[ship.x][ship.y] !== null) {
-	                return false;
-	            } else {
-	                return true;
-	            }
+	            return this.shipsPlacement[ship.x][ship.y] === null;
 	        }
 	    }, {
 	        key: 'assignePlacement',
